@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: false }))
 connectDB()
 
 app.use('/api/posts', require('./routes/post.route'))
+app.use('/api/users', require('./routes/user.route'))
 
 app.use(errorHandler);
 

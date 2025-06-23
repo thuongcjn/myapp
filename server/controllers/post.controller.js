@@ -1,9 +1,10 @@
 const Post = require('../models/post.model')
+const User = require('../models/user.model')
 
 const asyncHandler = require('express-async-handler');
 
 const getPosts = asyncHandler(async (req, res) => {
-    const posts = await Post.find({});
+    const posts = await Post.find({ userId: req.user.id }) || [];
     res.status(200).json(posts);
 })
 
@@ -19,27 +20,49 @@ const createPost = asyncHandler(async (req, res) => {
         res.status('400')
         throw new Error('Please fill all credentials')
     }
-
-    const newPost = await Post.create({ title, body })
+    const newPost = await Post.create({ userId: req.user.id, title, body })
     res.status(201).json(newPost)
 })
 
 const updatePost = asyncHandler(async (req, res) => {
     const id = req.params.id
+    const post = await Post.findById(id)
+    if (!post) {
+        res.status(404)
+        throw new Error('Post not found')
+    }
+    const user = await User.findById(req.user.id)
+    if (!user) {
+        res.status(404)
+        throw new Error('User not found')
+    }
+    if (post.userId.toString() !== user.id) {
+        res.status(404)
+        throw new Error('Not authorized')
+    }
     const { title, body } = req.body
     if (!title || !body) {
-        res.status('400')
+        res.status(400)
         throw new Error('Please fill all credentials')
     }
-    const updatedPost = await Post.findByIdAndUpdate(id, req.body, {new: true})
+    const updatedPost = await Post.findByIdAndUpdate(id, req.body, { new: true })
     res.status(200).json(updatedPost)
 })
 const deletePost = asyncHandler(async (req, res) => {
     const id = req.params.id
-    const post = await Post.findById(id);
+    const post = await Post.findById(id)
     if (!post) {
-        res.status(404);
-        throw new Error(`Post with id ${id} not found`)
+        res.status(404)
+        throw new Error('Post not found')
+    }
+    const user = await User.findById(req.user.id)
+    if (!user) {
+        res.status(404)
+        throw new Error('User not found')
+    }
+    if (post.userId.toString() !== user.id) {
+        res.status(404)
+        throw new Error('Not authorized')
     }
     await post.deleteOne()
     res.status(200).json({ message: `Post with id ${id} was deleted` })
