@@ -8,6 +8,16 @@ const getUsers = asyncHandler(async (req, res) => {
     res.status(200).json(users)
 })
 
+const getUser = asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const user = await User.findById(id).select('userName')
+    if (!user) {
+        res.status(404)
+        throw new Error('User not found')
+    }
+    res.status(200).json({ success: true, data: user })
+})
+
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body
     if (!email || !password) {
@@ -24,10 +34,14 @@ const loginUser = asyncHandler(async (req, res) => {
         throw new Error('Not authorized')
     }
     res.status(200).json({
-        _id: user.id,
-        userName: user.userName,
-        email: user.email,
-        token: generateToken(this._id)
+        success: true,
+        data: {
+
+            _id: user.id,
+            userName: user.userName,
+            email: user.email,
+            token: generateToken(user.id)
+        }
     })
 })
 
@@ -52,9 +66,11 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error('An error occured')
     }
     res.status(201).json({
-        userName,
-        email,
-        token: generateToken(newUser._id)
+        success: true, data: {
+            userName,
+            email,
+            token: generateToken(newUser._id)
+        }
     })
 })
 
@@ -76,6 +92,7 @@ const generateToken = (id) => {
 
 module.exports = {
     getUsers,
+    getUser,
     loginUser,
     registerUser,
     aboutUser
