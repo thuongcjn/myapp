@@ -16,6 +16,36 @@ A full-stack blog platform where users can sign up, log in, create, edit, and de
 - **Backend:** Node.js, Express, MongoDB, JWT
 - **Other:** LocalStorage for token management
 
+## Screenshots
+
+### Homepage
+
+![Homepage](client/public/screenshots/Homepage.JPG)
+
+### Login Page
+
+![Login Page](client/public/screenshots/Login%20page.JPG)
+
+### Signup Page
+
+![Signup Page](client/public/screenshots/Signup%20page.JPG)
+
+### Create Post Page
+
+![Create Post Page](client/public/screenshots/Createpost%20page.JPG)
+
+### Post Details Page
+
+![Post Details Page](client/public/screenshots/Post%20datails%20page.JPG)
+
+### Delete Post Page
+
+![Delete Post Page](client/public/screenshots/Post%20delete%20page.JPG)
+
+### Logout Page
+
+![Logout Page](client/public/screenshots/Logout%20page.JPG)
+
 ## Getting Started
 
 ### Prerequisites
@@ -76,6 +106,14 @@ Posts-App/
 │   │   ├── main.jsx
 │   │   └── index.css
 │   ├── public/
+│   │   └── screenshots/
+│   │       ├── Homepage.JPG
+│   │       ├── Login page.JPG
+│   │       ├── Signup page.JPG
+│   │       ├── Createpost page.JPG
+│   │       ├── Post datails page.JPG
+│   │       ├── Post delete page.JPG
+│   │       └── Logout page.JPG
 │   ├── package.json
 │   ├── tailwind.config.js
 │   └── ...
@@ -102,3 +140,11 @@ Posts-App/
 
 - Update API endpoints in the code if your backend runs on a different URL.
 - Modify Tailwind classes for custom styling.
+
+## License
+
+MIT
+
+---
+
+**Enjoy blogging!**
