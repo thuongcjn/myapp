@@ -74,7 +74,7 @@ A full-stack blog platform where users can sign up, log in, create, edit, and de
    ```
 4. Start the backend server:
    ```bash
-   npm run server
+   npm start
    ```
 
 #### Frontend
