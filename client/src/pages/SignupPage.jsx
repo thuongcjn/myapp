@@ -32,13 +32,16 @@ const SignupPage = () => {
     }
     setIsLoading(true);
     try {
-      const data = await fetch("http://localhost:8080/api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userName, email, password }),
-      });
+      const data = await fetch(
+        "https://mern-blog-posts.onrender.com/api/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userName, email, password }),
+        }
+      );
 
       const response = await data.json();
 

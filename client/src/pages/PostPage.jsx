@@ -32,11 +32,14 @@ const PostPage = () => {
   useEffect(() => {
     const getPost = async (id) => {
       try {
-        const data = await fetch(`http://localhost:8080/api/posts/${id}`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const data = await fetch(
+          `https://mern-blog-posts.onrender.com/api/posts/${id}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const response = await data.json();
         if (!data.ok || !response.success) {
           setMessage({ status: "false", msg: "An error occured" });

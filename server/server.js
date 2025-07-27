@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: false }))
 
 connectDB()
 
+app.get('/', (req, res) => res.send('Welcome to the posts API'))
 app.use('/api/posts', require('./routes/post.route'))
 app.use('/api/users', require('./routes/user.route'))
 

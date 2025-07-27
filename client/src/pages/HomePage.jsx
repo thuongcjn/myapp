@@ -15,7 +15,9 @@ const HomePage = () => {
   const fetchPosts = async () => {
     setIsLoading(true);
     try {
-      const data = await fetch("http://localhost:8080/api/posts");
+      const data = await fetch(
+        "https://mern-blog-posts.onrender.com/api/posts"
+      );
       const results = await data.json();
       if (!data.ok || !results.success) {
         toast.dismiss();
