@@ -65,7 +65,7 @@ const PostPage = () => {
   }, []);
 
   return !isLoading ? (
-    <section className="w-2/3 flex flex-col my-10 p-4 mx-1 space-y-2">
+    <section className="w-2/3 flex flex-col my-10 p-4 mx-auto space-y-2">
       <h3 className="text-3xl">{post?.title}</h3>
       <p className="text-lg">{post?.body}</p>
       <span className="text-right italic text-pink-500">
