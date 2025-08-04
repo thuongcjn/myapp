@@ -33,7 +33,7 @@ const SignupPage = () => {
     setIsLoading(true);
     try {
       const data = await fetch(
-        "https://mern-blog-posts.onrender.com/api/users",
+        "https://myapp-be.onrender.com/api/users",
         {
           method: "POST",
           headers: {
