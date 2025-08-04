@@ -25,7 +25,7 @@ const NavBar = () => {
 
   return (
     <nav className="fixed h-14 w-full mb-12 flex items-center justify-between bg-blue-300 m-auto p-3">
-      <div className="text-3xl font-bold">Posts App</div>
+      <div className="text-3xl font-bold">BETA</div>
       <div className="justify-between md:hidden">
         <FiMenu
           className="mr-3 mt-2 md:hidden cursor-pointer"
