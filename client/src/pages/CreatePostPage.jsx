@@ -23,7 +23,7 @@ const CreatePostPage = () => {
         setIsLoading(true);
         try {
           const data = await fetch(
-            `https://mern-blog-posts.onrender.com/api/posts/${id}`,
+            `https://myapp-be.onrender.com/api/posts/${id}`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -62,8 +62,8 @@ const CreatePostPage = () => {
     setIsLoading(true);
     try {
       const reqUrl = isEditing
-        ? `https://mern-blog-posts.onrender.com/api/posts/${params?.id}`
-        : "https://mern-blog-posts.onrender.com/api/posts";
+        ? `https://myapp-be.onrender.com/api/posts/${params?.id}`
+        : "https://myapp-be.onrender.com/api/posts";
 
       const data = await fetch(reqUrl, {
         method: isEditing ? "PUT" : "POST",
