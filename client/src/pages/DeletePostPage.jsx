@@ -15,7 +15,7 @@ const DeletePostPage = () => {
     setIsLoading(true);
     try {
       const data = await fetch(
-        `https://mern-blog-posts.onrender.com/api/posts/${id?.toString()}`,
+        `https://myapp-be.onrender.com/api/posts/${id?.toString()}`,
         {
           method: "DELETE",
           headers: {
