@@ -40,7 +40,7 @@ const LoginPage = () => {
 
     try {
       const data = await fetch(
-        "https://mern-blog-posts.onrender.com/api/users/login",
+        "https://myapp-be.onrender.com/api/users/login",
         {
           method: "POST",
           headers: {
