@@ -33,7 +33,7 @@ const PostPage = () => {
     const getPost = async (id) => {
       try {
         const data = await fetch(
-          `https://mern-blog-posts.onrender.com/api/posts/${id}`,
+          `https://myapp-be.onrender.com/api/posts/${id}`,
           {
             headers: {
               "Content-Type": "application/json",
