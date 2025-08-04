@@ -16,7 +16,7 @@ const HomePage = () => {
     setIsLoading(true);
     try {
       const data = await fetch(
-        "https://mern-blog-posts.onrender.com/api/posts"
+        "https://myapp-be.onrender.com/api/posts"
       );
       const results = await data.json();
       if (!data.ok || !results.success) {
